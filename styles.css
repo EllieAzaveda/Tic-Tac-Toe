@@ -1,4 +1,11 @@
 /* ******GENERAL****** */
 html {
+  height: 100%;
   font-family: 'Ravi Prakash', cursive;
+}
+
+body {
+  background-image: linear-gradient(#FFFF66, #FF9999, #99FFCC);
+  height: 100%;
+  margin: 0;
 }
