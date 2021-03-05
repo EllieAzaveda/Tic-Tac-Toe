@@ -6,6 +6,27 @@ html {
 
 body {
   background-image: linear-gradient(#FFFF66, #FF9999, #99FFCC);
+  /* height: 100%;
+  width: 100%; */
+  margin: : 0;
+}
+
+.display-wrapper {
+  display: flex;
   height: 100%;
-  margin: 0;
+}
+
+.left-side {
+  width: 100px;
+}
+
+.right-side {
+  margin-left: 5%;
+}
+
+.game-board {
+  border: 5px solid blue;
+  background-color: #FFFFFF;
+  height: 100%;
+  flex-grow: 1;
 }
