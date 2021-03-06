@@ -98,7 +98,7 @@ h2 {
 }
 
 .game-board-wrapper {
-  border: 5px solid teal;
+  /* border: 5px solid teal; */
   background-color: #FFFFFF;
   height: 100%;
   width: 100%;
@@ -115,12 +115,12 @@ h2 {
   width: 13em;
   display: grid;
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-  grid-gap: .35em;
+  grid-gap: .5em;
   align-items: center;
 }
 
 span {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   background-color: #FFFFFF;
   font-size: 100%;
   padding: 0;
