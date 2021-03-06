@@ -6,9 +6,36 @@
   <link rel="stylesheet" type="text/css" href="./styles.css">
 </head>
 <body>
- <div>Tic-Tac-Toe</div>
-  <script src="./game.js"></script>
+  <section class="display-wrapper" id="displayWrapper">
+    <div class="left-side" id="leftSide">
+      <h1 class="player-one-token">🏖</h1>
+      <h2 class="player-one-wins">0 WINS</h2>
+    </div>
+    <section class="center-wrapper">
+      <nav class="status-display">
+        <h1 class="show-status">STATUS HERE</h1>
+      </nav>
+      <section class="game-board-wrapper">
+        <div class="game-board" id="gameBoard">
+            <span class="TL">TL</span>
+            <span class="TC">TC</span>
+            <span class="TR">TR</span>
+            <span class="CL">CL</span>
+            <span class="CC">CC</span>
+            <span class="CR">CR</span>
+            <span class="BL">BL</span>
+            <span class="BC">BC</span>
+            <span class="BR">BR</span>
+        </div>
+      </section>
+    </section>
+    <div class="right-side" id="rightSide">
+      <h1 class="player-one-token">🏝</h1>
+      <h2 class="player-one-wins">0 WINS</h2>
+    </div>
+  </section>
+  <!-- <script src="./game.js"></script>
   <script src="./player.js"></script>
-  <script src="./src/main.js"></script>
+  <script src="./src/main.js"></script> -->
 </body>
 </html>
