@@ -109,21 +109,21 @@ h2 {
 
 .game-board {
   background-image: linear-gradient(#BFFF80, #FFFF66, #FF944D);
+  margin: 0;
+  padding: 0;
   height: 13em;
   width: 13em;
-  margin: 0;
-  /* display: grid;
-  grid-template: repeat(3, 1fr) / repeat(3, 1fr); */
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  grid-gap: .35em;
+  align-items: center;
 }
 
 span {
   border: 2px solid red;
   background-color: #FFFFFF;
-  font-size: 1em;
+  font-size: 100%;
+  padding: 0;
   height: 4em;
   width: 4em;
   display: flex;
