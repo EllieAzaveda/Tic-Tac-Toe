@@ -5,28 +5,168 @@ html {
 }
 
 body {
-  background-image: linear-gradient(#FFFF66, #FF9999, #99FFCC);
-  /* height: 100%;
-  width: 100%; */
-  margin: : 0;
-}
-
-.display-wrapper {
-  display: flex;
+  background-image: linear-gradient(#B3CCFF, #FF9999, #D9B3FF);
+  background-repeat: no-repeat;
   height: 100%;
+  width: 100%;
+  margin: 0;
 }
 
 .left-side {
-  width: 100px;
+  height: 100%;
+  grid-area: a;
+  font-size: 3em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .right-side {
-  margin-left: 5%;
+  height: 100%;
+  grid-area: c;
+  font-size: 3em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.center-wrapper {
+  background-color: #FFFFFF;
+  height: 100%;
+  width: 100%;
+  grid-area: b;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 3em;
+}
+
+.display-wrapper {
+  height: 100%;
+  margin: 0;
+  display: grid;
+  grid-column: auto;
+  gap: 0;
+  grid-template-areas:
+  "a b b c"
+  "a b b c"
+  "a b b c";
+  align-content: stretch;
+}
+
+/* LEFT & RIGHT ASIDES */
+
+h1 {
+  margin-bottom: 0;
+}
+
+h2 {
+  margin-top: 0;
+}
+/* .player-one-token {
+  margin-bottom: 0;
+}
+
+.player-two-token {
+  margin-bottom: 0;
+}
+
+.player-one-wins {
+  margin-top: 0;
+}
+
+.player-two-wins {
+  margin-bottom: 0;
+} */
+
+/* ******CENTER DISPLAY****** */
+
+.status-display {
+  /* border: 5px solid pink; */
+  background-color: #FFFFFF;
+  height: 4em;
+  width: 100%;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.show-status {
+  align-self: center;
+}
+
+.game-board-wrapper {
+  border: 5px solid teal;
+  background-color: #FFFFFF;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .game-board {
-  border: 5px solid blue;
-  background-color: #FFFFFF;
-  height: 100%;
-  flex-grow: 1;
+  background-image: linear-gradient(#BFFF80, #FFFF66, #FF944D);
+  height: 13em;
+  width: 13em;
+  margin: 0;
+  /* display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr); */
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-wrap: wrap;
 }
+
+span {
+  border: 2px solid red;
+  background-color: #FFFFFF;
+  font-size: 1em;
+  height: 4em;
+  width: 4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .box-wrapper {
+
+} */
+/*
+.box-1 {
+
+}
+
+.box-2 {
+
+}
+
+.box-3 {
+
+}
+
+.box-4 {
+
+}
+
+.box-5 {
+
+}
+
+.box-6 {
+
+}
+
+.box-7 {
+
+}
+
+.box-8 {
+
+}
+
+.box-9 {
+
+} */
