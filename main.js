@@ -29,16 +29,20 @@ function markBox(e) {
   var gridBoxes = Array.from(allBoxes);
   var i = gridBoxes.indexOf(e.target);
 
-  if(game.currentTurn === game.player1 && gridBoxes[i].innerText === "") {
-    game.turns++;
-    gridBoxes[i].innerText += `${game.player1.token}`;
-  } else if(game.currentTurn === game.player2 && gridBoxes[i].innerText === "") {
-    game.turns++;
-    gridBoxes[i].innerText += `${game.player2.token}`;
-  }
-  gridBoxes[i].isTaken = true;
+    if(game.currentTurn === game.player1 && gridBoxes[i].innerText === "") {
+      game.turns++;
+      gridBoxes[i].innerText += `${game.player1.token}`;
+    } else if(game.currentTurn === game.player2 && gridBoxes[i].innerText === "") {
+      game.turns++;
+      gridBoxes[i].innerText += `${game.player2.token}`;
+    }
+    gridBoxes[i].isTaken = true;
 
   game.updateTurn();
+  game.updateBoard();
+  game.saveMove();
+  game.determineWin();
+  // checkWinner();
   updateStatus();
 }
 
@@ -51,8 +55,16 @@ function updateStatus() {
     showStatus.innerText += `It's ${game.player2.token}'s turn!`;
   }
 }
-
-// function checkWinner() {
 //
+// function checkWinner() {
+//   game.isWon = false;
+//
+//   for (var i = 0; i < winningCombos.length; i++) {
+//     if (winningCombos[i][0] === ) {
+//       showStatus.innerText += `${game.player1.token} is the winner!`;
+//     } else if (winningCombos[i].contains(game.player1.moves)) {
+//       showStatus.innerText += `${game.player2.token} is the winnr!`;
+//     }
 //   }
+//   game.isWon = true;
 // }
