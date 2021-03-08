@@ -12,6 +12,8 @@ var allBoxes = document.querySelectorAll(".box");
 var showStatus = document.getElementById("showStatus");
 var gameBoard = document.getElementById("gameBoard");
 var gameBoardWrapper = document.getElementById("gameBoardWrapper");
+var player1Wins = document.getElementById("playerOneWins");
+var player2Wins = document.getElementById("playerTwoWins");
 
 
 // GLOBAL VARIABLE
@@ -58,15 +60,28 @@ function updateStatus() {
 
 function updateWinner() {
   if (game.winner === game.player1 && game.isWon) {
-    console.log("1st if block");
     showStatus.innerText = `${game.player1.token} is the winner!`;
+    updateTotalWins();
     game.endGame();
   } else if (game.winner === game.player2 && game.isWon) {
-    console.log("2nd if block");
     showStatus.innerText = `${game.player2.token} is the winner!`;
+    updateTotalWins();
     game.endGame();
   } else if(game.isDraw) {
     showStatus.innerText = `It's a draw!`;
     game.endGame();
+  }
+}
+
+function updateTotalWins() {
+  if (game.winner === game.player1 && game.player1.winCount != 1) {
+    player1Wins.innerText = `${game.player1.winCount} WINS`;
+  } else {
+    player1Wins.innerText = `1 WIN`;
+  }
+  if (game.winner === game.player2 && game.player2.winCount != 1) {
+    player2Wins.innerText = `${game.player2.winCount} WINS`;
+  } else {
+    player2Wins.innerText = `1 WIN`;
   }
 }
