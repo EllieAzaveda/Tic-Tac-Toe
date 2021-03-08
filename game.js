@@ -1,11 +1,11 @@
 class Game {
-  constructor(currentTurn) {
-    this.player1 = new Player("one", "🏖",[], 0);
-    this.player2 = new Player("two", "🏝",[], 0);
-    this.isCompleted = false;
-    this.isDraw = false;
+  constructor(isDraw, currentTurn, winner) {
+    this.player1 = new Player("one", "🏖",[], [], 0);
+    this.player2 = new Player("two", "🏝",[], [], 0);
+    this.gameOver = false;
+    this.isDraw = isDraw;
     this.isWon = false;
-    this.wins = [];
+    this.winner = winner;
     this.currentTurn = this.player1;
     this.turns = 0;
     this.board = [];
@@ -42,8 +42,6 @@ class Game {
   }
 
   determineWin() {
-    this.winner = false;
-
     var winningCombos = [
       [0, 1, 2],
       [3, 4, 5],
@@ -56,22 +54,48 @@ class Game {
     ];
     for (var i = 0; i < winningCombos.length; i++) {
       if(this.player1.moves.includes(winningCombos[i][0]) && this.player1.moves.includes(winningCombos[i][1]) && this.player1.moves.includes(winningCombos[i][2])) {
-        console.log("WIN");
+        console.log("PLAYER 1 WINS");
+        this.winner = this.player1;
+        this.player1.winCount++;
         this.isWon = true;
+        this.player1.saveWinsToStorage();
+        return;
+      } else if(this.player2.moves.includes(winningCombos[i][0]) && this.player2.moves.includes(winningCombos[i][1]) && this.player2.moves.includes(winningCombos[i][2])) {
+        console.log("PLAYER 2 WINS");
+        this.winner = this.player2;
+        this.player2.winCount++;
+        this.isWon = true;
+        this.player2.saveWinsToStorage();
         return;
       }
     }
   }
 
+  // updateWinCount() {
+  //   if(this.winner === this.player1) {
+  //     this.player1.winCount++;
+  //   } else if (this.winner === this.player1) {
+  //     this.player2.winCount++;
+  //   }
+  // }
+
   determineDraw() {
-    if(allBoxes === this.isTaken) {
-      howStatus.innerText += `It's a draw!`;
-    }
+      if(this.turns === 9 && !this.isWon) {
+        console.log("It's a draw!")
+        this.isDraw = true;
+      }
   }
+
+  // endGame() {
+  //   if(this.turns === 9 || this.isDraw || this.isWon) {
+  //     this.gameOver = true;
+  //   }
+  // }
 
   // reset() {
   //   this.turns = 0;
   //   allBoxes.innerText = "";
+  //   this.isWon = false;
   // }
 
   //

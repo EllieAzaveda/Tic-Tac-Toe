@@ -1,19 +1,19 @@
 class Player {
-  constructor(id, token, moves, wins) {
+  constructor(id, token, moves, wins, winCount) {
     this.id = id;
     this.token = token;
     this.moves = [];
-    this.wins = 0;
+    this.wins = [];
+    this.winCount = 0;
   }
 
-  saveWinsToStorage(winner) {
-    this.wins.push(winner);
-    localStorage.setItem("wins", JSON.stringify(wins));
+  saveWinsToStorage() {
+    localStorage.setItem(this.id, JSON.stringify(this.winCount));
   }
 
   retrieveWinsFromStorage() {
     var storage = window.localStorage;
-    localStorage.getItem("wins", JSON.parse(wins));
+    localStorage.getItem(this.id, JSON.parse(this.winCount));
   }
 
 }
