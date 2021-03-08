@@ -60,12 +60,13 @@ function updateWinner() {
   if (game.winner === game.player1 && game.isWon) {
     console.log("1st if block");
     showStatus.innerText = `${game.player1.token} is the winner!`;
-    // game.endGame();
+    game.endGame();
   } else if (game.winner === game.player2 && game.isWon) {
     console.log("2nd if block");
     showStatus.innerText = `${game.player2.token} is the winner!`;
-    // game.endGame();
-  } else if(allBoxes.innerText === this.isTaken) {
-    status.innerText += `It's a draw!`;
+    game.endGame();
+  } else if(game.isDraw) {
+    showStatus.innerText = `It's a draw!`;
+    game.endGame();
   }
 }

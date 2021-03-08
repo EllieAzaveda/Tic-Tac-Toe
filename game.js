@@ -86,11 +86,11 @@ class Game {
       }
   }
 
-  // endGame() {
-  //   if(this.turns === 9 || this.isDraw || this.isWon) {
-  //     this.gameOver = true;
-  //   }
-  // }
+  endGame() {
+    if(this.turns === 9 || this.isDraw || this.isWon) {
+      this.gameOver = true;
+    }
+  }
 
   // reset() {
   //   this.turns = 0;
