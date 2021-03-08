@@ -53,15 +53,12 @@ class Game {
       [2, 4, 6]
     ];
     for (var i = 0; i < winningCombos.length; i++) {
-      if(this.player1.moves.includes(winningCombos[i][0]) && this.player1.moves.includes(winningCombos[i][1]) && this.player1.moves.includes(winningCombos[i][2])) {
-        console.log("PLAYER 1 WINS");
-        this.winner = this.player1;
+      if(this.player1.moves.includes(winningCombos[i][0]) && this.player1.moves.includes(winningCombos[i][1]) && this.player1.moves.includes(winningCombos[i][2])) {        this.winner = this.player1;
         this.player1.winCount++;
         this.isWon = true;
         this.player1.saveWinsToStorage();
         return;
       } else if(this.player2.moves.includes(winningCombos[i][0]) && this.player2.moves.includes(winningCombos[i][1]) && this.player2.moves.includes(winningCombos[i][2])) {
-        console.log("PLAYER 2 WINS");
         this.winner = this.player2;
         this.player2.winCount++;
         this.isWon = true;
@@ -71,14 +68,6 @@ class Game {
     }
   }
 
-  // updateWinCount() {
-  //   if(this.winner === this.player1) {
-  //     this.player1.winCount++;
-  //   } else if (this.winner === this.player1) {
-  //     this.player2.winCount++;
-  //   }
-  // }
-
   determineDraw() {
       if(this.turns === 9 && !this.isWon) {
         console.log("It's a draw!")
@@ -87,16 +76,15 @@ class Game {
   }
 
   endGame() {
-    if(this.turns === 9 || this.isDraw || this.isWon) {
+    if(this.isDraw || this.isWon) {
       this.gameOver = true;
     }
   }
 
-  // reset() {
-  //   this.turns = 0;
-  //   allBoxes.innerText = "";
-  //   this.isWon = false;
-  // }
+  resetBoard() {
+    setTimeout(function() {
+      location.reload();}, 5000)
+    }
 
   //
   // trackWins() {

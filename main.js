@@ -12,7 +12,7 @@ var player2Wins = document.getElementById("playerTwoWins");
 var game = new Game();
 
 // EVENT LISTENERS
-window.addEventListener("load", retrieveWinsFromStorage);
+window.addEventListener("DOMContentLoaded", instantiateStorage);
 
 gameBoard.addEventListener("click", updateStatus);
 
@@ -23,6 +23,15 @@ allBoxes.forEach(function(box) {
 gameBoardWrapper.addEventListener("click", updateWinner);
 
 // FUNCTIONS
+
+function instantiateStorage(playerParsedWins) {
+    for (var i = 0; i < playerParsedWins.length; i++) {
+      game = new Game(playerParsedWins[i].player1.winCount, playerParsedWins[i].player2.winCount);
+      game.saveWinsToStorage();
+    }
+    // updateTotalWins();
+  }
+
 function markBox(e) {
   var gridBoxes = Array.from(allBoxes);
   var i = gridBoxes.indexOf(e.target);
@@ -53,27 +62,30 @@ function updateStatus() {
 function updateWinner() {
   if (game.winner === game.player1 && game.isWon) {
     showStatus.innerText = `${game.player1.token} is the winner!`;
-    updateTotalWins();
+    // updateTotalWins();
     game.endGame();
+    game.resetBoard();
   } else if (game.winner === game.player2 && game.isWon) {
     showStatus.innerText = `${game.player2.token} is the winner!`;
-    updateTotalWins();
+    // updateTotalWins();
     game.endGame();
+    game.resetBoard();
   } else if(game.isDraw) {
     showStatus.innerText = `It's a draw!`;
     game.endGame();
+    game.resetBoard();
   }
 }
 
-function updateTotalWins() {
-  if (game.winner === game.player1 && game.player1.winCount != 1) {
-    player1Wins.innerText = `${game.player1.winCount} WINS`;
-  } else {
-    player1Wins.innerText = `1 WIN`;
-  }
-  if (game.winner === game.player2 && game.player2.winCount != 1) {
-    player2Wins.innerText = `${game.player2.winCount} WINS`;
-  } else {
-    player2Wins.innerText = `1 WIN`;
-  }
-}
+// function updateTotalWins() {
+//   if (game.player1.winCount != 1) {
+//     player1Wins.innerText = `${game.player1.winCount} WINS`;
+//   } else {
+//     player1Wins.innerText = `1 WIN`;
+//   }
+//   if (game.player2.winCount != 1) {
+//     player2Wins.innerText = `${game.player2.winCount} WINS`;
+//   } else {
+//     player2Wins.innerText = `1 WIN`;
+//   }
+// }
