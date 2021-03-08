@@ -9,14 +9,16 @@
 // var box7 = document.getElementById("box7");
 // var box8 = document.getElementById("box8");
 var allBoxes = document.querySelectorAll(".box");
-
 var showStatus = document.getElementById("showStatus");
 var gameBoard = document.getElementById("gameBoard");
+var gameBoardWrapper = document.getElementById("gameBoardWrapper");
+
 
 // GLOBAL VARIABLE
 var game = new Game();
 
 // EVENT LISTENERS
+// window.addEventListener("load", retrieveWinsFromStorage);
 
 gameBoard.addEventListener("click", updateStatus);
 
@@ -24,35 +26,46 @@ allBoxes.forEach(function(box) {
   box.addEventListener("click", markBox)
 });
 
+gameBoardWrapper.addEventListener("click", updateWinner);
+
 // FUNCTIONS
 function markBox(e) {
   var gridBoxes = Array.from(allBoxes);
   var i = gridBoxes.indexOf(e.target);
 
-  if(game.currentTurn === game.player1 && gridBoxes[i].innerText === "") {
-    game.turns++;
-    gridBoxes[i].innerText += `${game.player1.token}`;
-  } else if(game.currentTurn === game.player2 && gridBoxes[i].innerText === "") {
-    game.turns++;
-    gridBoxes[i].innerText += `${game.player2.token}`;
-  }
-  gridBoxes[i].isTaken = true;
-
+    if(game.currentTurn === game.player1 && gridBoxes[i].innerText === "") {
+      game.turns++;
+      gridBoxes[i].innerText += `${game.player1.token}`;
+    } else if(game.currentTurn === game.player2 && gridBoxes[i].innerText === "") {
+      game.turns++;
+      gridBoxes[i].innerText += `${game.player2.token}`;
+    }
   game.updateTurn();
+  game.updateBoard();
+  game.saveMove();
+  game.determineWin();
+  game.determineDraw();
   updateStatus();
 }
 
 function updateStatus() {
-  showStatus.innerText = "";
-
-  if(game.currentTurn === game.player1) {
-    showStatus.innerText += `It's ${game.player1.token}'s turn!`;
-  } else {
-    showStatus.innerText += `It's ${game.player2.token}'s turn!`;
+  if(game.currentTurn === game.player1 && !game.isWon) {
+    showStatus.innerText = `It's ${game.player1.token}'s turn!`;
+  } else if (game.currentTurn === game.player2 && !game.isWon){
+    showStatus.innerText = `It's ${game.player2.token}'s turn!`;
   }
 }
 
-// function checkWinner() {
-//
-//   }
-// }
+function updateWinner() {
+  if (game.winner === game.player1 && game.isWon) {
+    console.log("1st if block");
+    showStatus.innerText = `${game.player1.token} is the winner!`;
+    // game.endGame();
+  } else if (game.winner === game.player2 && game.isWon) {
+    console.log("2nd if block");
+    showStatus.innerText = `${game.player2.token} is the winner!`;
+    // game.endGame();
+  } else if(allBoxes.innerText === this.isTaken) {
+    status.innerText += `It's a draw!`;
+  }
+}
