@@ -54,18 +54,16 @@ class Game {
       [2, 4, 6]
     ];
     for (var i = 0; i < winningCombos.length; i++) {
-      console.log(game.board);
-
       if(this.player1.moves.includes(winningCombos[i][0]) && this.player1.moves.includes(winningCombos[i][1]) && this.player1.moves.includes(winningCombos[i][2])) {
+        this.player1.winCount++;
+        this.player1.saveWinsToStorage(this.player1);
         this.winner = this.player1;
         this.isWon = true;
-        this.player1.winCount++;
-        //add saveWinsToStorage
-        console.log(game.player1.winCount);
         return;
       } else if(this.player2.moves.includes(winningCombos[i][0]) && this.player2.moves.includes(winningCombos[i][1]) && this.player2.moves.includes(winningCombos[i][2])) {
-        this.winner = this.player2;
         this.player2.winCount++;
+        this.player2.saveWinsToStorage(this.player2);
+        this.winner = this.player2;
         this.isWon = true;
         return;
       }

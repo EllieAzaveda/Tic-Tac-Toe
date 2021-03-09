@@ -1,5 +1,4 @@
 // QUERY SELECTORS
-
 var allBoxes = document.querySelectorAll(".box");
 var showStatus = document.getElementById("showStatus");
 var gameBoard = document.getElementById("gameBoard");
@@ -10,12 +9,6 @@ var player2Wins = document.getElementById("playerTwoWins");
 
 // GLOBAL VARIABLE
 var game = new Game();
-//On load: display everything & display turns when game starts
-//Users take turns adding token to board & status should updateTurn
-//When winner: stop adding tokens to board, display winner status
-//... Update winCount, display new winCount in ASIDES
-//reset bord after time
-//Save winCount to localStorage so it saves after refresh
 
 
 // EVENT LISTENERS
@@ -29,27 +22,11 @@ allBoxes.forEach(function(box) {
 
 gameBoardWrapper.addEventListener("click", updateWinner);
 
+
 // FUNCTIONS
-
-//Add helper function from shit in markBox function for page load
-//Whatever we want to happen right as the page loads
-
-// function refreshPageDisplay() {
-//   game.updateTurn();
-//   game.updateBoard();
-//   game.saveMove();
-//   game.determineWin();
-//   game.determineDraw();
-//   updateStatus();
-//   updateTotalWins();
-// }
-
-function instantiateStorage(player1ParsedWins, player2ParsedWins) {
-      // var storage = window.localStorage;
-  // var player1 = new Player(player1ParsedWins.id, player1ParsedWins.token, player1ParsedWins.moves, player1ParsedWins.wins, player1ParsedWins.winCount);
-  // game.players.push(player1);
-  // var player2 = new Player(player2ParsedWins.id, player2ParsedWins.token, player2ParsedWins.moves, player2ParsedWins.wins, player2ParsedWins.winCount);
-  // game.players.push(player2);
+function instantiateStorage(retrievedWinsP1, retrievedWinsP2) {
+  game.player1.retrieveWinsFromStorage(retrievedWinsP1);
+  game.player2.retrieveWinsFromStorage(retrievedWinsP2);
 }
 
 function markBox(e) {
@@ -70,7 +47,6 @@ function updateStatus() {
   if(game.currentTurn === game.player1 && !game.isWon) {
     showStatus.innerText = `It's ${game.player1.token}'s turn!`;
   } else if (game.currentTurn === game.player2 && !game.isWon){
-    console.log("update status!");
     showStatus.innerText = `It's ${game.player2.token}'s turn!`;
   }
 }
@@ -102,11 +78,9 @@ function updateTotalWins() {
   } else {
     player2Wins.innerText = `1 WIN`;
   }
-  //Call to retrieveWinsFromStorage
 }
 
 // HELPER FUNCTIONS
-
 function refreshPageDisplay() {
   updateTotalWins();
 }
