@@ -9,6 +9,7 @@ class Game {
     this.currentTurn = this.player1;
     this.turns = 0;
     this.board = [];
+    // this.players = [];
   }
 
   updateTurn() {
@@ -53,26 +54,28 @@ class Game {
       [2, 4, 6]
     ];
     for (var i = 0; i < winningCombos.length; i++) {
-      if(this.player1.moves.includes(winningCombos[i][0]) && this.player1.moves.includes(winningCombos[i][1]) && this.player1.moves.includes(winningCombos[i][2])) {        this.winner = this.player1;
-        this.player1.winCount++;
+      console.log(game.board);
+
+      if(this.player1.moves.includes(winningCombos[i][0]) && this.player1.moves.includes(winningCombos[i][1]) && this.player1.moves.includes(winningCombos[i][2])) {
+        this.winner = this.player1;
         this.isWon = true;
-        this.player1.saveWinsToStorage();
+        this.player1.winCount++;
+        //add saveWinsToStorage
+        console.log(game.player1.winCount);
         return;
       } else if(this.player2.moves.includes(winningCombos[i][0]) && this.player2.moves.includes(winningCombos[i][1]) && this.player2.moves.includes(winningCombos[i][2])) {
         this.winner = this.player2;
         this.player2.winCount++;
         this.isWon = true;
-        this.player2.saveWinsToStorage();
         return;
       }
     }
   }
 
   determineDraw() {
-      if(this.turns === 9 && !this.isWon) {
-        console.log("It's a draw!")
-        this.isDraw = true;
-      }
+    if(this.turns === 9 && !this.isWon) {
+      this.isDraw = true;
+    }
   }
 
   endGame() {
@@ -83,13 +86,12 @@ class Game {
 
   resetBoard() {
     setTimeout(function() {
-      location.reload();}, 5000)
+      location.reload();}, 3000)
     }
 
-  //
   // trackWins() {
-  //
+  //   if(this.isWon && this.winner === this.player1.id) {
+  //   } else if(this.isWon && this.winner === this.player2.id) {
+  //   }
   // }
-// }
-
 }
