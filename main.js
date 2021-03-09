@@ -1,5 +1,4 @@
 // QUERY SELECTORS
-
 var allBoxes = document.querySelectorAll(".box");
 var showStatus = document.getElementById("showStatus");
 var gameBoard = document.getElementById("gameBoard");
@@ -11,8 +10,9 @@ var player2Wins = document.getElementById("playerTwoWins");
 // GLOBAL VARIABLE
 var game = new Game();
 
+
 // EVENT LISTENERS
-window.addEventListener("load", retrieveWinsFromStorage);
+window.addEventListener("load", instantiateStorage);
 
 gameBoard.addEventListener("click", updateStatus);
 
@@ -22,24 +22,25 @@ allBoxes.forEach(function(box) {
 
 gameBoardWrapper.addEventListener("click", updateWinner);
 
+
 // FUNCTIONS
+function instantiateStorage(retrievedWinsP1, retrievedWinsP2) {
+  game.player1.retrieveWinsFromStorage(retrievedWinsP1);
+  game.player2.retrieveWinsFromStorage(retrievedWinsP2);
+}
+
 function markBox(e) {
   var gridBoxes = Array.from(allBoxes);
   var i = gridBoxes.indexOf(e.target);
 
-    if(game.currentTurn === game.player1 && gridBoxes[i].innerText === "") {
+    if(game.currentTurn === game.player1 && gridBoxes[i].innerText === "" && !game.isWon) {
       game.turns++;
       gridBoxes[i].innerText += `${game.player1.token}`;
-    } else if(game.currentTurn === game.player2 && gridBoxes[i].innerText === "") {
+    } else if(game.currentTurn === game.player2 && gridBoxes[i].innerText === "" && !game.isWon) {
       game.turns++;
       gridBoxes[i].innerText += `${game.player2.token}`;
     }
-  game.updateTurn();
-  game.updateBoard();
-  game.saveMove();
-  game.determineWin();
-  game.determineDraw();
-  updateStatus();
+  checkStatus();
 }
 
 function updateStatus() {
@@ -53,27 +54,42 @@ function updateStatus() {
 function updateWinner() {
   if (game.winner === game.player1 && game.isWon) {
     showStatus.innerText = `${game.player1.token} is the winner!`;
-    updateTotalWins();
     game.endGame();
+    game.resetBoard();
   } else if (game.winner === game.player2 && game.isWon) {
     showStatus.innerText = `${game.player2.token} is the winner!`;
-    updateTotalWins();
     game.endGame();
+    game.resetBoard();
   } else if(game.isDraw) {
     showStatus.innerText = `It's a draw!`;
     game.endGame();
+    game.resetBoard();
   }
 }
 
 function updateTotalWins() {
-  if (game.winner === game.player1 && game.player1.winCount != 1) {
+  if (game.player1.winCount != 1) {
     player1Wins.innerText = `${game.player1.winCount} WINS`;
   } else {
     player1Wins.innerText = `1 WIN`;
   }
-  if (game.winner === game.player2 && game.player2.winCount != 1) {
+  if (game.player2.winCount != 1) {
     player2Wins.innerText = `${game.player2.winCount} WINS`;
   } else {
     player2Wins.innerText = `1 WIN`;
   }
+}
+
+// HELPER FUNCTIONS
+function refreshPageDisplay() {
+  updateTotalWins();
+}
+
+function checkStatus() {
+  game.updateTurn();
+  game.updateBoard();
+  game.saveMove();
+  game.determineWin();
+  game.determineDraw();
+  updateStatus();
 }
