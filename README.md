@@ -1,34 +1,38 @@
-# Tic-Tac-Toe
+# Tic Tac Toe Solo Project
 
-# Ideabox Group Project
+Who doesn't love a good game of Tic-Tac-Toe! Kick back and play a relaxing game with a friend with this tropical paradise themed Tic-Tac-Toe app!
 
-Every developer has more ideas than time. As David Allen likes to say "the human brain is for creating ideas, not remembering them." In this project, we'll be building an application that records and archives our ideas (good and bad alike).
-
-Throughout the project, one of our focuses will be on providing a fluid and responsive client-side interface. To this end, we'll rely on JavaScript to implement snappy filtering in the browser, and `localStorage` to persist our wonderful ideas between sessions.
+Throughout the project, my main focus was to provie a fluid and responsive client-side interface. To this end, I reled on JavaScript to implement high quality game interaction in the browser, and `localStorage` to maintain both player's win counts so the competition will get fierce!
 
 ## Learning Goals
 
-* Gain an understanding of how to write clean HTML and CSS to match a provided comp
-* Understand how to implement client-side data persistence using `localStorage`
-* Understand what it looks like to have a separate data model (using a class) and DOM model
-* Incorporate & iterate over arrays in order to filter what is being displayed
-* Craft code with clean style, using small functions that show trends toward DRYness and SRP
+* Solidify and demonstrate your understanding of:
+- DRY JavaScript
+- localStorage to persist data
+- event delegation to handle similar event listeners
+* Understand the difference between the data model and how the data is displayed on the DOM
+* Iterate through/filter DOM elements using for loops
+* Use your problem solving process to break down large problems, solve things step by step, and trust yourself to not rely on an outside “answer” to a logical challenge
 
-The project spec & rubric can be found [here](https://frontend.turing.io/projects/module-1/ideabox-group.html)
 
-![Alt Text](https://media.giphy.com/media/uEnDw0eZALQEuoM5kz/giphy.gif)
+The project spec & rubric can be found [here](https://frontend.turing.io/projects/module-1/tic-tac-toe-solo.html)
+
+![Alt Text]()
 
 ## Functionality
-*Ideabox: a web app to store, organize, and display user-submitted "idea cards"*
+*Tic Tac Toe: a web app play tic-tac-toe, as well as store and display user wins*
 
-#### Create & Remove Ideas Cards
-- In this application, a user is able to create an idea card using the title and body inputs. Once they choose a title and body, they can save their card using the "save" button and it will populate in the space below the form. There is a "remove" (X) button in the top right corner of each card that will delete the entire content from both the page and from storage.
+#### Fully functional game board for two players
+- This Tic-Tac-Toe board is ready for relaxed or intense competition between any two competitors willing to take on the challenge in this tropical island version of Tic-Tac-Toe. We've graduated from Xs and Os, so grab your shades and a Mai Thai and decide whether you want to lounge under a shady palm tree or under an umbrella by the water!
 
-#### Add Cards to "Favorites"
-- Each idea card has "favorite" (star) button in the top left corner that will change from white to red when clicked by the user. The user may also click the "Show Starred" button to filter the cards so that they only see their favorited idea cards.
+#### Status bar above the board
+- You will always know who's turn it is with the status bar above the board. Just remember where you've kicked your feet up and the game will tell you the rest!
 
-#### Use "Instant Search" to Filter Cards
-- A user can search through all of their saved cards using the search bar. Their idea cards will filter as the user types their query, showing only the cards that include their search characters.
+#### Timed reset
+- You don't even have to make an effort to play a new game, so keep your cocktail in hand and the board will reset in just seconds! Just enough time to get a refill!
+
+#### Updated win count in asides
+- Are you competitive? Don't worry! You will know exactly where you stand with your total win count right under your player at all times. It will even update after the board refreshes so you will never forget!
 
 #### Web Accessibility
 - Our application has fully implemented HTML that is accessible for individuals with visual disabilities. Our application passes the WAVE audit tool.
@@ -44,25 +48,25 @@ The project spec & rubric can be found [here](https://frontend.turing.io/project
 - SMACCS
 
 #### Project Links
-- [GitHub Repo](https://github.com/EllieAzaveda/ideabox-boilerplate)
-- [GitHub Page](https://ellieazaveda.github.io/ideabox-boilerplate)
+- [GitHub Repo](https://github.com/EllieAzaveda/Tic-Tac-Toe)
 
 #### Credits
 ##### Co-Contributors
 - [🧚 Ellie Azaveda](https://github.com/EllieAzaveda)
 
 ##### Mentors
-- [🦸‍♀️ Jessica Justice](https://github.com/m1073496)
+- [🦸🏻‍♀️ Jessica Justice](https://github.com/m1073496)
+- [🦸‍ Akira Brand](https://github.com/AkiraBrand)
 
 ##### Project Manager
 - [👩🏻‍ Kayla Wood](https://github.com/kaylaewood)
 
 ### Want to contribute?
-- Interested in contributing to Ideabox?
+- Interested in contributing to Tic-Tac-Toe?
 - Fork this project and clone to your machine.
 - Create a pull request, and one of our project managers will get back to you with a code review!
 
 **************************************************************************
 
 ###### This project was created for [Turing School of Software and Design](https://turing.io/)
-###### 02MARCH2021
+###### 09MARCH2021

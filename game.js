@@ -9,7 +9,6 @@ class Game {
     this.currentTurn = this.player1;
     this.turns = 0;
     this.board = [];
-    // this.players = [];
   }
 
   updateTurn() {
@@ -84,7 +83,7 @@ class Game {
 
   resetBoard() {
     setTimeout(function() {
-      location.reload();}, 3000)
+      location.reload();}, 2000)
     }
 
   // trackWins() {
