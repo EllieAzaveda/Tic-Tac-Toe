@@ -25,8 +25,10 @@ gameBoardWrapper.addEventListener("click", updateWinner);
 
 // FUNCTIONS
 function instantiateStorage(retrievedWinsP1, retrievedWinsP2) {
-  game.player1.retrieveWinsFromStorage(retrievedWinsP1);
-  game.player2.retrieveWinsFromStorage(retrievedWinsP2);
+  game.player1.retrieveP1WinsFromStorage(retrievedWinsP1);
+  updateP1TotalWins();
+  game.player2.retrieveP2WinsFromStorage(retrievedWinsP2);
+  updateP2TotalWins();
 }
 
 function markBox(e) {
@@ -65,27 +67,29 @@ function updateWinner() {
     game.endGame();
     game.resetBoard();
   }
-  updateTotalWins();
 }
 
-function updateTotalWins() {
-  if (game.player1.winCount != 1) {
+function updateP1TotalWins() {
+  if (game.player1.winCount === 1) {
+    player1Wins.innerText = `1 WIN`;
+  } else if (game.player1.winCount > 1) {
     player1Wins.innerText = `${game.player1.winCount} WINS`;
   } else {
-    player1Wins.innerText = `1 WIN`;
+    player1Wins.innerText = `0 WINS`;
   }
-  if (game.player2.winCount != 1) {
+}
+
+function updateP2TotalWins() {
+  if (game.player2.winCount === 1) {
+    player2Wins.innerText = `1 WIN`;
+  } else if (game.player2.winCount > 1) {
     player2Wins.innerText = `${game.player2.winCount} WINS`;
   } else {
-    player2Wins.innerText = `1 WIN`;
+    player2Wins.innerText = `0 WINS`;
   }
 }
 
 // HELPER FUNCTIONS
-function refreshPageDisplay() {
-  updateTotalWins();
-}
-
 function checkStatus() {
   game.updateTurn();
   game.updateBoard();

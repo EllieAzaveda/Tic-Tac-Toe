@@ -4,7 +4,7 @@ class Player {
     this.token = token;
     this.moves = [];
     this.wins = [];
-    this.winCount = winCount;
+    this.winCount = 0;
   }
 
   saveWinsToStorage(player) {
@@ -15,11 +15,13 @@ class Player {
     }
   }
 
-  retrieveWinsFromStorage() {
+  retrieveP1WinsFromStorage() {
     var retrievedWinsP1 = JSON.parse(localStorage.getItem("player1Wins"));
     this.winCount = retrievedWinsP1;
+  }
 
-    var retrievedWinsP2 = localStorage.getItem("player2Wins");
+  retrieveP2WinsFromStorage() {
+    var retrievedWinsP2 = JSON.parse(localStorage.getItem("player2Wins"));
     this.winCount = retrievedWinsP2;
   }
 

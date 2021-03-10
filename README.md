@@ -1,8 +1,8 @@
 # Tic Tac Toe Solo Project
 
-<!-- Every developer has more ideas than time. As David Allen likes to say "the human brain is for creating ideas, not remembering them." In this project, we'll be building an application that records and archives our ideas (good and bad alike).
+Who doesn't love a good game of Tic-Tac-Toe! Kick back and play a relaxing game with a friend with this tropical paradise themed Tic-Tac-Toe app!
 
-Throughout the project, one of our focuses will be on providing a fluid and responsive client-side interface. To this end, we'll rely on JavaScript to implement snappy filtering in the browser, and `localStorage` to persist our wonderful ideas between sessions. -->
+Throughout the project, my main focus was to provie a fluid and responsive client-side interface. To this end, I reled on JavaScript to implement high quality game interaction in the browser, and `localStorage` to maintain both player's win counts so the competition will get fierce!
 
 ## Learning Goals
 
@@ -17,22 +17,25 @@ Throughout the project, one of our focuses will be on providing a fluid and resp
 
 The project spec & rubric can be found [here](https://frontend.turing.io/projects/module-1/tic-tac-toe-solo.html)
 
-![Alt Text](https://media.giphy.com/media/uEnDw0eZALQEuoM5kz/giphy.gif)
+![Alt Text]()
 
 ## Functionality
 *Tic Tac Toe: a web app play tic-tac-toe, as well as store and display user wins*
 
 #### Fully functional game board for two players
--
+- This Tic-Tac-Toe board is ready for relaxed or intense competition between any two competitors willing to take on the challenge in this tropical island version of Tic-Tac-Toe. We've graduated from Xs and Os, so grab your shades and a Mai Thai and decide whether you want to lounge under a shady palm tree or under an umbrella by the water!
 
 #### Status bar above the board
--
+- You will always know who's turn it is with the status bar above the board. Just remember where you've kicked your feet up and the game will tell you the rest!
 
 #### Timed reset
--
+- You don't even have to make an effort to play a new game, so keep your cocktail in hand and the board will reset in just seconds! Just enough time to get a refill!
 
 #### Updated win count in asides
--
+- Are you competitive? Don't worry! You will know exactly where you stand with your total win count right under your player at all times. It will even update after the board refreshes so you will never forget!
+
+#### Web Accessibility
+- Our application has fully implemented HTML that is accessible for individuals with visual disabilities. Our application passes the WAVE audit tool.
 
 #### Technologies Used
 - JavaScript
