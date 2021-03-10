@@ -65,6 +65,7 @@ function updateWinner() {
     game.endGame();
     game.resetBoard();
   }
+  updateTotalWins();
 }
 
 function updateTotalWins() {
