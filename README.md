@@ -52,6 +52,9 @@ The project spec & rubric can be found [here](https://frontend.turing.io/project
 - Single-Responsibility Principle
 - SMACCS
 
+#### Future Iterations
+- In future iterations, I would like to add a hover feature over each box so users can see exactly where their emoji will be placed. I would also like to add a pop up or confetti/glitter explosion feature when a player wins. I'd like for players to be able to choose their player token from a list of options rather than just having two set options. I'm interested in getting more creative with the CSS in the future as well. I'd love to have the entire screen be more interactive, including things like looking into your win stats, see if you had a certain number of win streaks, or how many days in a row you've played. I 
+
 #### Project Links
 - [GitHub Repo](https://github.com/EllieAzaveda/Tic-Tac-Toe)
 

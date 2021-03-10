@@ -115,3 +115,7 @@ span {
   justify-content: center;
   align-items: center;
 }
+
+.box:hover, .box:hover span {
+  color: #DCB1F5;
+}
