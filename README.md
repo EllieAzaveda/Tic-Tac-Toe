@@ -17,7 +17,12 @@ Throughout the project, my main focus was to provie a fluid and responsive clien
 
 The project spec & rubric can be found [here](https://frontend.turing.io/projects/module-1/tic-tac-toe-solo.html)
 
-![Alt Text]()
+![Alt Text](<img width="977" alt="Screen Shot 2021-03-09 at 8 43 39 PM" src="https://user-images.githubusercontent.com/76409536/110573594-c2a93780-8118-11eb-9b34-5e4cb317afe6.png">)
+![Alt Text](<img width="975" alt="Screen Shot 2021-03-09 at 8 44 37 PM" src="https://user-images.githubusercontent.com/76409536/110573657-deacd900-8118-11eb-9c50-4320fc81673e.png">)
+![Alt Text](<img width="977" alt="Screen Shot 2021-03-09 at 8 45 03 PM" src="https://user-images.githubusercontent.com/76409536/110573663-e0769c80-8118-11eb-9109-3ec16116097c.png">)
+![Alt Text](<img width="917" alt="Screen Shot 2021-03-09 at 8 46 02 PM" src="https://user-images.githubusercontent.com/76409536/110573665-e2406000-8118-11eb-9726-33870400ea85.png">)
+
+
 
 ## Functionality
 *Tic Tac Toe: a web app play tic-tac-toe, as well as store and display user wins*
